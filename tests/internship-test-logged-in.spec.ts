@@ -30,9 +30,10 @@ test("Navigate to valamar.com & click on Log in button", async ({ page }) => {
     .click();
 
   await expect(page, "Page does NOT have expected page title.").toHaveTitle(
-    "Sign up or sign in"
+    "Sign up or sign in",
+    { timeout: 60000 }
   );
-});
+}, 60000);
 
 //NOTE: This is a helper function for making https requests, you're calling it in the next test but don't worry too much about it
 async function fetchData(url: string): Promise<Response> {
