@@ -11,7 +11,7 @@ import { expect, test } from "@playwright/test";
 //TODO: Remove all test solutions (hint:) before sending to candidates
 test("Navigate to valamar.com & validate page title", async ({ page }) => {
   const valamarURL = "https://valamar.com";
-  await page.goto(valamarURL);
+  await page.goto(valamarURL, { waitUntil: "commit" });
 
   await expect(page, "Page does NOT have expected page title.").toHaveTitle(
     "Valamar Holiday Hotels & Resorts in Croatia and Austria",
