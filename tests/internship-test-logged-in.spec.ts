@@ -21,9 +21,9 @@ test("Navigate to valamar.com & validate page title", async ({ page }) => {
 
 test("Navigate to valamar.com & click on Log in button", async ({ page }) => {
   const valamarURL = "https://valamar.com";
-  await page.goto(valamarURL);
+  await page.goto(valamarURL, { waitUntil: "domcontentloaded" });
 
-  await page.locator('div[id="azureb2c-login"]').click({ timeout: 30000 });
+  await page.locator('button[id="azureb2c-login"]').click({ timeout: 30000 });
 
   await page
     .locator('button[class="btn-vlm-primary w-full mt-6 app-button"]')
