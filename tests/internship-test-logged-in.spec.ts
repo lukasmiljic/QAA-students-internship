@@ -72,7 +72,7 @@ test("Validate ALL page urls & Network response", async ({}) => {
     console.log("response\n", response);
     console.log("response status code: ", response.status);
 
-    const statusCode = response.status; //TODO: Replace this declaration with the actual status code from the response
+    const statusCode = response.status;
     expect(statusCode, "Unexpected status code!").toEqual(200);
   }
 });
