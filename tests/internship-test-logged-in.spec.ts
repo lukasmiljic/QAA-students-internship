@@ -60,18 +60,19 @@ test("Validate ALL page urls & Network response", async ({}) => {
   console.log(urls.length);
 
   //NOTE: Make sure you're validating that ALL of urls have the appropriate structure
-  for (let i = 1; i < urls.length; i++) {
-    const url = urls[j];
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
     console.log("Getting data for ", url);
     expect(url, "URL does NOT have the proper structure!").toContain(
       "https://"
     );
+
+    //NOTE: Here you need to extract the http request response status code, we are already logging the entire response, take a look and see if you can extract the status code from it
+    const response = await fetchData(urls[0]);
+    console.log("response\n", response);
+    console.log("response status code: ", response.status);
+
+    const statusCode = response.status; //TODO: Replace this declaration with the actual status code from the response
+    expect(statusCode, "Unexpected status code!").toEqual(200);
   }
-
-  //NOTE: Here you need to extract the http request response status code, we are already logging the entire response, take a look and see if you can extract the status code from it
-  const response = await fetchData(urls[0]);
-  console.log("response\n", response);
-
-  const statusCode = ""; //TODO: Replace this declaration with the actual status code from the response
-  expect(statusCode, "Unexpected status code!").toEqual(200);
 });
