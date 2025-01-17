@@ -10,7 +10,7 @@ import { expect, test } from "@playwright/test";
 
 //TODO: Remove all test solutions (hint:) before sending to candidates
 test("Navigate to valamar.com & validate page title", async ({ page }) => {
-  const valamarURL = "https//valamar.com";
+  const valamarURL = "https://valamar.com";
   await page.goto(valamarURL);
 
   await expect(page, "Page does NOT have expected page title.").toHaveTitle(
