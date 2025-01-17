@@ -14,7 +14,7 @@ test("Navigate to valamar.com & validate page title", async ({ page }) => {
   await page.goto(valamarURL);
 
   await expect(page, "Page does NOT have expected page title.").toHaveTitle(
-    "Valamar Holiday Hotels & Resorts",
+    "Valamar Holiday Hotels & Resorts in Croatia and Austria",
     { timeout: 60000 }
   );
 });
